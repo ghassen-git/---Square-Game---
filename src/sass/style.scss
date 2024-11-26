@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 62.5%;
+}
+
 body {
   height: 100svh;
   background: radial-gradient(
@@ -11,4 +15,64 @@ body {
     rgba(67, 13, 109, 1) 0%,
     rgba(0, 0, 0, 1) 100%
   );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+
+  .game-container {
+    position: relative;
+  }
+
+  .game-board {
+    width: 60rem;
+    height: 60rem;
+    background-color: aliceblue;
+    box-shadow: 0 0 10px 5px rgba(11, 36, 150, 0.394);
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+  }
+  .side-bar-container {
+    border-radius: 5px;
+    position: absolute;
+    top: 0;
+    right: -67.5rem;
+    width: 36rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background-color: rgba(78, 22, 80, 0.368);
+
+    .pieces-container {
+      display: grid;
+      height: 100%;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 1rem;
+      row-gap: 2rem;
+      padding: 0.5rem;
+
+      .piece-box {
+        display: flex;
+        flex-wrap: wrap;
+        width: 15rem;
+        height: 15rem;
+        background-color: rgba(143, 16, 147, 0.154);
+
+        .cell {
+          border: 2px solid transparent;
+        }
+      }
+    }
+  }
+}
+
+.cell {
+  width: 3rem;
+  height: 3rem;
+  border: 2px solid black;
 }
