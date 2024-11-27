@@ -1,6 +1,9 @@
-import { pieces } from "../model/generatePieces.js";
-
 const displayPiece = function (box, n, pieces) {
+  box.querySelectorAll(".cell-1").forEach((cell) => {
+    cell.style.backgroundColor = "";
+    cell.style.border = "2px solid transparent";
+    cell.style.zIndex = "";
+  });
   for (let j = 0; j < 5; j++) {
     for (let i = 0; i < 5; i++) {
       if (pieces[`piece${n + 1}`][i][j] === 1) {
@@ -13,7 +16,7 @@ const displayPiece = function (box, n, pieces) {
   }
 };
 
-export const displayPieces = function () {
+export const displayPieces = function (pieces) {
   const boxes = document.querySelectorAll(".piece-box");
 
   boxes.forEach((box, i) => {
