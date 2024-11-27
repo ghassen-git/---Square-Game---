@@ -63,7 +63,7 @@ body {
         height: 15rem;
         background-color: rgba(143, 16, 147, 0.154);
 
-        .cell {
+        .cell-1 {
           border: 2px solid transparent;
         }
       }
@@ -72,6 +72,12 @@ body {
 }
 
 .cell {
+  width: 3rem;
+  height: 3rem;
+  border: 2px solid black;
+}
+
+.cell-1 {
   width: 3rem;
   height: 3rem;
   border: 2px solid black;
