@@ -4,7 +4,7 @@ const displayPiece = function (box, n, pieces) {
   for (let j = 0; j < 5; j++) {
     for (let i = 0; i < 5; i++) {
       if (pieces[`piece${n + 1}`][i][j] === 1) {
-        const cell = box.querySelector(`.cell[pos ="[${j},${i}]"]`);
+        const cell = box.querySelector(`.cell-1[pos ="[${j},${i}]"]`);
         cell.style.backgroundColor = "red";
         cell.style.border = "2px solid ";
         cell.style.zIndex = "2";

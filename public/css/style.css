@@ -58,11 +58,17 @@ body .side-bar-container .pieces-container .piece-box {
   height: 15rem;
   background-color: rgba(143, 16, 147, 0.154);
 }
-body .side-bar-container .pieces-container .piece-box .cell {
+body .side-bar-container .pieces-container .piece-box .cell-1 {
   border: 2px solid transparent;
 }
 
 .cell {
+  width: 3rem;
+  height: 3rem;
+  border: 2px solid black;
+}
+
+.cell-1 {
   width: 3rem;
   height: 3rem;
   border: 2px solid black;
