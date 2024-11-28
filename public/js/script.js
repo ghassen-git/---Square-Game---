@@ -11,7 +11,7 @@ import { piecesSetPlayer4 } from "./model/generatePieces.js";
 import { displayPieces } from "./view/displayPieces.js";
 import { dropPieces } from "./view/dropPieces.js";
 displayPieces(piecesSetPlayer1);
-let pieces = piecesSetPlayer1;
+export let pieces = piecesSetPlayer1;
 let target, piece, x, y;
 document.querySelectorAll(".piece-box").forEach((pieceb) => {
   pieceb.addEventListener("dragstart", (event) => {

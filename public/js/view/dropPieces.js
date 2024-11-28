@@ -1,4 +1,4 @@
-import { pieces } from "../model/generatePieces.js";
+import { pieces } from "../script.js ";
 
 export function dropPieces(id, num, id2) {
   let x, y;
