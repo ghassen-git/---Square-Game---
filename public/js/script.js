@@ -9,23 +9,33 @@ import { piecesSetPlayer2 } from "./model/generatePieces.js";
 import { piecesSetPlayer3 } from "./model/generatePieces.js";
 import { piecesSetPlayer4 } from "./model/generatePieces.js";
 import { displayPieces } from "./view/displayPieces.js";
-
+import { dropPieces } from "./view/dropPieces.js";
 displayPieces(piecesSetPlayer1);
-
-// Drag and Drop
-let target;
-document.querySelectorAll(".cell").forEach((cell) => {
-  cell.addEventListener("dragstart", (event) => {
+export let pieces = piecesSetPlayer1;
+let target, piece, x, y;
+document.querySelectorAll(".piece-box").forEach((pieceb) => {
+  pieceb.addEventListener("dragstart", (event) => {
     target = event.target;
+    console.log(event);
+    piece = target.getAttribute("piece");
+    target.style.background = "none";
   });
+  pieceb.addEventListener("mousedown", function (e) {
+    x = parseInt(e.target.getAttribute("x"));
+    y = parseInt(e.target.getAttribute("y"));
+  });
+});
+document.querySelectorAll(".cell").forEach(function (cell) {
   cell.addEventListener("dragover", (event) => {
     event.preventDefault();
-    console.log(event);
   });
   cell.addEventListener("drop", (event) => {
     event.preventDefault();
-    console.log(event.target.getAttribute("id"));
-    cell.style.backgroundColor = "red";
+    dropPieces(
+      [event.target.getAttribute("x"), event.target.getAttribute("y")],
+      piece,
+      [x, y]
+    );
     target.remove();
   });
 });

@@ -41,9 +41,9 @@ body .side-bar-container {
   height: 60rem;
   overflow-y: scroll;
   overflow-x: hidden;
-  background-color: rgba(78, 22, 80, 0.368);
 }
 body .side-bar-container .pieces-container {
+  background-color: rgba(78, 22, 80, 0.368);
   display: grid;
   height: 100%;
   grid-template-columns: 1fr 1fr;
