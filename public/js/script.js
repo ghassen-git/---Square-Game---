@@ -20,17 +20,19 @@ let players = [
   piecesSetPlayer4,
 ];
 export let currentPlayer;
-
+export let pieces;
 const startGame = function () {
   displayCells();
-  displaySideBar();
   currentPlayer = 0;
+  displaySideBar(players[currentPlayer]);
   displayPieces(players[currentPlayer]);
+  let color = players[currentPlayer].color;
+  pieces = players[currentPlayer];
 };
 
 startGame();
-export let pieces = players[currentPlayer];
-// Drag and drop
+
+// Drag and Dr§op
 let target, piece, x, y;
 document.querySelectorAll(".piece-box").forEach((pieceb) => {
   pieceb.addEventListener("dragstart", (event) => {
@@ -49,22 +51,28 @@ document.querySelectorAll(".cell").forEach(function (cell) {
   });
   cell.addEventListener("drop", (event) => {
     event.preventDefault();
-    console.log(target);
 
     dropPieces(
       [event.target.getAttribute("x"), event.target.getAttribute("y")],
       piece,
       [x, y]
     );
-    currentPlayer++;
-    if (currentPlayer === 4) {
-      currentPlayer = 0;
-    }
+
     removeFromObject(
       players[currentPlayer],
       Number(target.getAttribute("piece"))
     );
-    target.remove();
+
+    console.log(target);
+
+    currentPlayer++;
+    if (currentPlayer === 4) {
+      currentPlayer = 0;
+    }
+
+    pieces = players[currentPlayer];
+    console.log(pieces);
+
     displayPieces(players[currentPlayer]);
   });
 });
