@@ -40,10 +40,10 @@ body .side-bar-container {
   align-items: center;
   height: 60rem;
   overflow-y: scroll;
+  background-color: rgba(78, 22, 80, 0.368);
   overflow-x: hidden;
 }
 body .side-bar-container .pieces-container {
-  background-color: rgba(78, 22, 80, 0.368);
   display: grid;
   height: 100%;
   grid-template-columns: 1fr 1fr;

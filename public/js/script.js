@@ -34,9 +34,9 @@ document.querySelectorAll(".cell").forEach(function (cell) {
     dropPieces(
       [event.target.getAttribute("x"), event.target.getAttribute("y")],
       piece,
-      [x, y]
+      [x, y],
+      target
     );
-    target.remove();
   });
 });
 
