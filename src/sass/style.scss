@@ -8,6 +8,10 @@ html {
   font-size: 62.5%;
 }
 
+.hidden {
+  display: none !important;
+}
+
 body {
   height: 100svh;
   background: radial-gradient(
@@ -35,6 +39,7 @@ body {
     overflow: hidden;
   }
   .side-bar-container {
+    background-color: rgba(78, 22, 80, 0.368);
     border-radius: 5px;
     position: absolute;
     top: 0;

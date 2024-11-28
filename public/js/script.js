@@ -1,22 +1,41 @@
 import { displayCells } from "./view/displayCells.js";
-displayCells();
 
 import { displaySideBar } from "./view/displaySideBarCells.js";
-displaySideBar();
+
+import { removeFromObject } from "./model/removeFromObj.js";
+
+import { displayPieces } from "./view/displayPieces.js";
+
+import { dropPieces } from "./view/dropPieces.js";
 
 import { piecesSetPlayer1 } from "./model/generatePieces.js";
 import { piecesSetPlayer2 } from "./model/generatePieces.js";
 import { piecesSetPlayer3 } from "./model/generatePieces.js";
 import { piecesSetPlayer4 } from "./model/generatePieces.js";
-import { displayPieces } from "./view/displayPieces.js";
-import { dropPieces } from "./view/dropPieces.js";
-displayPieces(piecesSetPlayer1);
-export let pieces = piecesSetPlayer1;
+
+export let players = [
+  piecesSetPlayer1,
+  piecesSetPlayer2,
+  piecesSetPlayer3,
+  piecesSetPlayer4,
+];
+export let currentPlayer;
+export let pieces;
+const startGame = function () {
+  displayCells();
+  currentPlayer = 0;
+  displaySideBar(players[currentPlayer]);
+  displayPieces(players[currentPlayer]);
+  pieces = players[currentPlayer];
+};
+
+startGame();
+
+// Drag and Dr§op
 let target, piece, x, y;
 document.querySelectorAll(".piece-box").forEach((pieceb) => {
   pieceb.addEventListener("dragstart", (event) => {
     target = event.target;
-    console.log(event);
     piece = target.getAttribute("piece");
     target.style.background = "none";
   });
@@ -31,11 +50,13 @@ document.querySelectorAll(".cell").forEach(function (cell) {
   });
   cell.addEventListener("drop", (event) => {
     event.preventDefault();
-    dropPieces(
+
+    [pieces, currentPlayer] = dropPieces(
       [event.target.getAttribute("x"), event.target.getAttribute("y")],
       piece,
       [x, y],
-      target
+      target,
+      currentPlayer
     );
   });
 });
@@ -43,6 +64,7 @@ document.querySelectorAll(".cell").forEach(function (cell) {
 //Flip A Peace
 import { flipPiece } from "./flipPiece.js";
 import { flipPieceY } from "./flipPiece.js";
+
 const piecesEl = document.querySelectorAll(".piece-box");
 piecesEl.forEach((pieceEl) => {
   const pieceID = Number(pieceEl.getAttribute("piece"));
