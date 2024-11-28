@@ -1,5 +1,5 @@
 const buildCellHTML = function (y, x) {
-  return `<div class="cell-1" pos="[${x},${y}]"></div>`;
+  return `<div class="cell-1" pos="[${x},${y}]" x=${y} y=${x}></div>`;
 };
 
 const generateSideBarCells = function (length, height) {

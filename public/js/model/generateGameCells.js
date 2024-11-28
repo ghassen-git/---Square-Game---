@@ -1,12 +1,12 @@
 const buildCellHTML = function (y, x) {
-  return `<div id="${x}-${y}"  draggable="true" class="cell" pos="[${x},${y}]"></div>`;
+  return `<div id="${x}-${y}"  class="cell" x=${x} y=${y} ></div>`;
 };
 
 export const generateCells = function () {
   let html = ``;
   for (let j = 0; j < 20; j++) {
     for (let i = 0; i < 20; i++) {
-      html += buildCellHTML(j, i);
+      html += buildCellHTML(i, j);
     }
   }
 

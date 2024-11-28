@@ -46,9 +46,9 @@ body {
     height: 60rem;
     overflow-y: scroll;
     overflow-x: hidden;
-    background-color: rgba(78, 22, 80, 0.368);
 
     .pieces-container {
+      background-color: rgba(78, 22, 80, 0.368);
       display: grid;
       height: 100%;
       grid-template-columns: 1fr 1fr;
@@ -61,7 +61,6 @@ body {
         flex-wrap: wrap;
         width: 15rem;
         height: 15rem;
-        background-color: rgba(143, 16, 147, 0.154);
 
         .cell-1 {
           border: 2px solid transparent;
