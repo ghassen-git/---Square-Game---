@@ -1,22 +1,40 @@
 import { displayCells } from "./view/displayCells.js";
-displayCells();
 
 import { displaySideBar } from "./view/displaySideBarCells.js";
-displaySideBar();
+
+import { removeFromObject } from "./model/removeFromObj.js";
+
+import { displayPieces } from "./view/displayPieces.js";
+
+import { dropPieces } from "./view/dropPieces.js";
 
 import { piecesSetPlayer1 } from "./model/generatePieces.js";
 import { piecesSetPlayer2 } from "./model/generatePieces.js";
 import { piecesSetPlayer3 } from "./model/generatePieces.js";
 import { piecesSetPlayer4 } from "./model/generatePieces.js";
-import { displayPieces } from "./view/displayPieces.js";
-import { dropPieces } from "./view/dropPieces.js";
-displayPieces(piecesSetPlayer1);
-export let pieces = piecesSetPlayer1;
+
+let players = [
+  piecesSetPlayer1,
+  piecesSetPlayer2,
+  piecesSetPlayer3,
+  piecesSetPlayer4,
+];
+export let currentPlayer;
+
+const startGame = function () {
+  displayCells();
+  displaySideBar();
+  currentPlayer = 0;
+  displayPieces(players[currentPlayer]);
+};
+
+startGame();
+export let pieces = players[currentPlayer];
+// Drag and drop
 let target, piece, x, y;
 document.querySelectorAll(".piece-box").forEach((pieceb) => {
   pieceb.addEventListener("dragstart", (event) => {
     target = event.target;
-    console.log(event);
     piece = target.getAttribute("piece");
     target.style.background = "none";
   });
@@ -31,18 +49,30 @@ document.querySelectorAll(".cell").forEach(function (cell) {
   });
   cell.addEventListener("drop", (event) => {
     event.preventDefault();
+    console.log(target);
+
     dropPieces(
       [event.target.getAttribute("x"), event.target.getAttribute("y")],
       piece,
       [x, y]
     );
+    currentPlayer++;
+    if (currentPlayer === 4) {
+      currentPlayer = 0;
+    }
+    removeFromObject(
+      players[currentPlayer],
+      Number(target.getAttribute("piece"))
+    );
     target.remove();
+    displayPieces(players[currentPlayer]);
   });
 });
 
 //Flip A Peace
 import { flipPiece } from "./flipPiece.js";
 import { flipPieceY } from "./flipPiece.js";
+
 const piecesEl = document.querySelectorAll(".piece-box");
 piecesEl.forEach((pieceEl) => {
   const pieceID = Number(pieceEl.getAttribute("piece"));
