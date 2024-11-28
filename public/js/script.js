@@ -13,7 +13,7 @@ import { piecesSetPlayer2 } from "./model/generatePieces.js";
 import { piecesSetPlayer3 } from "./model/generatePieces.js";
 import { piecesSetPlayer4 } from "./model/generatePieces.js";
 
-let players = [
+export let players = [
   piecesSetPlayer1,
   piecesSetPlayer2,
   piecesSetPlayer3,
@@ -26,7 +26,6 @@ const startGame = function () {
   currentPlayer = 0;
   displaySideBar(players[currentPlayer]);
   displayPieces(players[currentPlayer]);
-  let color = players[currentPlayer].color;
   pieces = players[currentPlayer];
 };
 
@@ -52,28 +51,13 @@ document.querySelectorAll(".cell").forEach(function (cell) {
   cell.addEventListener("drop", (event) => {
     event.preventDefault();
 
-    dropPieces(
+    [pieces, currentPlayer] = dropPieces(
       [event.target.getAttribute("x"), event.target.getAttribute("y")],
       piece,
-      [x, y]
+      [x, y],
+      target,
+      currentPlayer
     );
-
-    removeFromObject(
-      players[currentPlayer],
-      Number(target.getAttribute("piece"))
-    );
-
-    console.log(target);
-
-    currentPlayer++;
-    if (currentPlayer === 4) {
-      currentPlayer = 0;
-    }
-
-    pieces = players[currentPlayer];
-    console.log(pieces);
-
-    displayPieces(players[currentPlayer]);
   });
 });
 
