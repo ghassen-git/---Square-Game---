@@ -28,20 +28,11 @@ export function dropPieces(id, num, id2, target, currentPlayer) {
             ?.classList.contains(pieces.color) ||
           document
             .getElementById(`${i - x}-${j - y - 1}`)
-            ?.classList.contains(pieces.color)
-          //  ||
-          // !document
-          //   .getElementById(`${x - 1}-${y + 1}`)
-          //   .classList.contains("red") ||
-          // !document
-          //   .getElementById(`${x + 1}-${y - 1}`)
-          //   .classList.contains("red") ||
-          // !document
-          //   .getElementById(`${x + 1}-${y + 1}`)
-          //   .classList.contains("red") ||
-          // !document
-          //   .getElementById(`${x - 1}-${y - 11}`)
-          //   .classList.contains("red")
+            ?.classList.contains(pieces.color) ||
+          document.getElementById(`${i - x}-${j - y}`)?.classList.length != 1 ||
+          document.getElementById(`${i - x}-${j - y}`)?.classList.length != 1 ||
+          document.getElementById(`${i - x}-${j - y}`)?.classList.length != 1 ||
+          document.getElementById(`${i - x}-${j - y}`)?.classList.length != 1
         ) {
           test = false;
         }
