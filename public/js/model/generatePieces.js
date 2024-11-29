@@ -1,13 +1,14 @@
 class PiecesCl {
-  constructor(color) {
-    (this.color = color),
-      (this.piece1 = [
-        [0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0],
-        [0, 0, 1, 0, 0],
-        [0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0],
-      ]);
+  constructor(color, arr) {
+    this.color = color;
+    this.possibleMoves = arr;
+    this.piece1 = [
+      [0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0],
+      [0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0],
+    ];
     this.piece2 = [
       [0, 0, 0, 0, 0],
       [0, 0, 1, 0, 0],
@@ -71,13 +72,90 @@ class PiecesCl {
       [0, 1, 1, 0, 0],
       [0, 0, 0, 0, 0],
     ];
+    this.piece11 = [
+      [0, 0, 0, 0, 0],
+      [0, 0, 1, 1, 0],
+      [0, 1, 1, 0, 0],
+      [0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0],
+    ];
+    this.piece12 = [
+      [0, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0],
+      [0, 1, 1, 1, 0],
+      [0, 0, 0, 1, 0],
+      [0, 0, 0, 0, 0],
+    ];
+    this.piece13 = [
+      [0, 1, 0, 0, 0],
+      [0, 1, 1, 0, 0],
+      [0, 0, 1, 0, 0],
+      [0, 0, 1, 0, 0],
+      [0, 0, 0, 0, 0],
+    ];
+    this.piece14 = [
+      [0, 0, 0, 0, 0],
+      [0, 0, 1, 1, 0],
+      [0, 0, 1, 0, 0],
+      [0, 1, 1, 0, 0],
+      [0, 0, 0, 0, 0],
+    ];
+    this.piece15 = [
+      [0, 0, 0, 0, 0],
+      [0, 0, 1, 1, 0],
+      [0, 0, 1, 0, 0],
+      [0, 0, 1, 0, 0],
+      [0, 0, 0, 0, 0],
+    ];
+    this.piece16 = [
+      [0, 0, 0, 0, 0],
+      [0, 1, 1, 1, 0],
+      [0, 0, 1, 0, 0],
+      [0, 0, 1, 0, 0],
+      [0, 0, 0, 0, 0],
+    ];
+    this.piece17 = [
+      [0, 0, 0, 0, 0],
+      [0, 1, 0, 0, 0],
+      [0, 1, 0, 0, 0],
+      [0, 1, 1, 1, 0],
+      [0, 0, 0, 0, 0],
+    ];
+    this.piece18 = [
+      [0, 0, 1, 0, 0],
+      [0, 0, 1, 1, 0],
+      [0, 0, 1, 0, 0],
+      [0, 0, 1, 0, 0],
+      [0, 0, 1, 0, 0],
+    ];
+    this.piece19 = [
+      [0, 0, 0, 0, 0],
+      [0, 0, 0, 1, 0],
+      [0, 0, 1, 1, 0],
+      [0, 1, 1, 0, 0],
+      [0, 0, 0, 0, 0],
+    ];
+    this.piece20 = [
+      [0, 0, 0, 0, 0],
+      [0, 0, 1, 1, 0],
+      [0, 0, 1, 0, 0],
+      [0, 0, 1, 0, 0],
+      [0, 0, 0, 0, 0],
+    ];
+    this.piece21 = [
+      [0, 0, 0, 0, 0],
+      [0, 0, 1, 1, 0],
+      [0, 0, 1, 0, 0],
+      [0, 0, 1, 0, 0],
+      [0, 0, 1, 0, 0],
+    ];
   }
 }
 
-export const piecesSetPlayer1 = new PiecesCl("red");
-export const piecesSetPlayer2 = new PiecesCl("yellow");
-export const piecesSetPlayer3 = new PiecesCl("green");
-export const piecesSetPlayer4 = new PiecesCl("blue");
+export const piecesSetPlayer1 = new PiecesCl("red", [19, 19]);
+export const piecesSetPlayer2 = new PiecesCl("yellow", [0, 19]);
+export const piecesSetPlayer3 = new PiecesCl("green", [0, 0]);
+export const piecesSetPlayer4 = new PiecesCl("blue", [19, 0]);
 
 /* 
 export const piecesSetPlayer1 = {
