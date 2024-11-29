@@ -51,6 +51,10 @@ document.querySelectorAll(".cell").forEach(function (cell) {
   cell.addEventListener("drop", (event) => {
     event.preventDefault();
 
+    let coords = document.querySelector(
+      `.cell .${players[currentPlayer].color}`
+    );
+    console.log(coords);
     [pieces, currentPlayer] = dropPieces(
       [event.target.getAttribute("x"), event.target.getAttribute("y")],
       piece,

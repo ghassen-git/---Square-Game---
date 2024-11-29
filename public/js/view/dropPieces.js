@@ -75,11 +75,10 @@ export function dropPieces(id, num, id2, target, currentPlayer) {
   console.log(posArr);
   console.log(pieces[`piece${num}`]);
   console.log(finalArr);
-  console.log(x, y);
   for (let i = 0; i < finalArr.length; i++) {
     for (let j = 0; j < finalArr[0].length; j++) {
       if (finalArr[i][j] === 1) {
-        console.log(i - 1, j - 1);
+        console.log(i - 1 + x - 1, j - 1 + y);
       }
     }
   }
@@ -102,7 +101,6 @@ export function dropPieces(id, num, id2, target, currentPlayer) {
       Number(target.getAttribute("piece"))
     );
 
-    console.log(target);
     currentPlayer++;
     if (currentPlayer === 4) {
       currentPlayer = 0;
