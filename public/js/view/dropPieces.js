@@ -71,3 +71,5 @@ export function dropPieces(id, num, id2, target, currentPlayer) {
   }
   return [players[currentPlayer], currentPlayer];
 }
+
+const gaston = 123;
