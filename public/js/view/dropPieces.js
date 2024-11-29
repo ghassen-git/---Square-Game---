@@ -2,6 +2,7 @@ import { removeFromObject } from "../model/removeFromObj.js";
 import { players } from "../script.js";
 import { displayPieces } from "./displayPieces.js";
 const gameBoard = document.querySelector(".game-board");
+
 export function dropPieces(id, num, id2, target, currentPlayer) {
   let x,
     y,
@@ -39,6 +40,7 @@ export function dropPieces(id, num, id2, target, currentPlayer) {
       }
     }
   }
+  console.log(x, y);
   console.log(test);
   if (test) {
     for (let i = id[0]; i < 5 + id[0]; i++) {
@@ -49,6 +51,7 @@ export function dropPieces(id, num, id2, target, currentPlayer) {
         if (pieces[`piece${num}`][i - id[0]][j - id[1]] == 1) {
           const cell = document.getElementById(`${i - x}-${j - y}`);
           cell.style.backgroundColor = pieces.color;
+          cell.style.boxShadow = "0 3px 10px 3px rgba(0, 0, 0, 0.582)";
           cell.classList.add(`${pieces.color}`);
         }
       }
@@ -59,16 +62,10 @@ export function dropPieces(id, num, id2, target, currentPlayer) {
       Number(target.getAttribute("piece"))
     );
 
-    console.log(target);
     currentPlayer++;
     if (currentPlayer === 4) {
       currentPlayer = 0;
     }
-    // gameBoard.style.transition = "all 0.5s";
-    // gameBoard.style.transitionDelay = "1s";
-    // let z = currentPlayer * 90;
-    // console.log(gameBoard);
-    // gameBoard.style.transform = `rotate(${z}deg)`;
 
     displayPieces(players[currentPlayer]);
   }
