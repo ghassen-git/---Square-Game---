@@ -30,7 +30,10 @@ const startGame = function () {
 };
 
 startGame();
-
+document.getElementById("0-0").style.backgroundColor = "red";
+document.getElementById("0-0").classList.add(`red`);
+document.getElementById("0-0").style.boxShadow =
+  "0 3px 10px 3px rgba(0, 0, 0, 0.582)";
 // Drag and Dr§op
 let target, piece, x, y;
 document.querySelectorAll(".piece-box").forEach((pieceb) => {
