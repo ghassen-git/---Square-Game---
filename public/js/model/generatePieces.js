@@ -1,7 +1,8 @@
 class PiecesCl {
-  constructor(color, arr) {
+  constructor(color, current, score) {
     this.color = color;
-    this.possibleMoves = arr;
+    this.current = current;
+    this.score = score;
     this.piece1 = [
       [0, 0, 0, 0, 0],
       [0, 0, 0, 0, 0],
@@ -140,22 +141,15 @@ class PiecesCl {
       [0, 0, 1, 1, 0],
       [0, 0, 1, 0, 0],
       [0, 0, 1, 0, 0],
-      [0, 0, 0, 0, 0],
-    ];
-    this.piece21 = [
-      [0, 0, 0, 0, 0],
-      [0, 0, 1, 1, 0],
-      [0, 0, 1, 0, 0],
-      [0, 0, 1, 0, 0],
       [0, 0, 1, 0, 0],
     ];
   }
 }
 
-export const piecesSetPlayer1 = new PiecesCl("red", [19, 19]);
-export const piecesSetPlayer2 = new PiecesCl("yellow", [0, 19]);
-export const piecesSetPlayer3 = new PiecesCl("green", [0, 0]);
-export const piecesSetPlayer4 = new PiecesCl("blue", [19, 0]);
+export const piecesSetPlayer1 = new PiecesCl("#ef476f", true, 89);
+export const piecesSetPlayer2 = new PiecesCl("#ffd166", false, 89);
+export const piecesSetPlayer3 = new PiecesCl("#06d6a0", false, 89);
+export const piecesSetPlayer4 = new PiecesCl("#118ab2", false, 89);
 
 /* 
 export const piecesSetPlayer1 = {

@@ -1,5 +1,3 @@
-import { currentPlayer } from "../script.js";
-
 const displayPiece = function (box, pieces) {
   box.querySelectorAll(".cell-1").forEach((cell) => {
     cell.style.backgroundColor = "";
@@ -13,9 +11,10 @@ const displayPiece = function (box, pieces) {
       if (pieces[`piece${id}`] === undefined) {
         continue;
       }
+      const cell = box.querySelector(`.cell-1[pos ="[${j},${i}]"]`);
       if (pieces[`piece${id}`][i][j] === 1) {
         counter++;
-        const cell = box.querySelector(`.cell-1[pos ="[${j},${i}]"]`);
+
         cell.style.backgroundColor = pieces.color;
         cell.style.border = "2px solid ";
         cell.style.zIndex = "2";
