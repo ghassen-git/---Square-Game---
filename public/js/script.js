@@ -51,6 +51,7 @@ export const startGame = function (currentPlayer) {
       pieceb.addEventListener("dragstart", (event) => {
         target = event.target;
         piece = target.getAttribute("piece");
+
         target.style.background = "none";
       });
       pieceb.addEventListener("mousedown", function (e) {
