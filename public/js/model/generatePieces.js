@@ -1,6 +1,7 @@
 class PiecesCl {
-  constructor(color) {
-    (this.color = color),
+  constructor(color, current) {
+    (this.current = current),
+      (this.color = color),
       (this.piece1 = [
         [0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0],
@@ -74,10 +75,10 @@ class PiecesCl {
   }
 }
 
-export const piecesSetPlayer1 = new PiecesCl("red");
-export const piecesSetPlayer2 = new PiecesCl("yellow");
-export const piecesSetPlayer3 = new PiecesCl("green");
-export const piecesSetPlayer4 = new PiecesCl("blue");
+export const piecesSetPlayer1 = new PiecesCl("#ef476f", true, 89);
+export const piecesSetPlayer2 = new PiecesCl("#ffd166", false, 89);
+export const piecesSetPlayer3 = new PiecesCl("#06d6a0", false, 89);
+export const piecesSetPlayer4 = new PiecesCl("#118ab2", false, 89);
 
 /* 
 export const piecesSetPlayer1 = {
