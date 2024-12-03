@@ -14,7 +14,7 @@ const generateSideBarCells = function (length, height) {
 };
 
 const buildCellsBoxHTML = function (i) {
-  const html = generateSideBarCells(5, 5);
+  const html = generateSideBarCells(7, 7);
 
   return `<div draggable='true' piece='${i}' class=piece-box>
   ${html}

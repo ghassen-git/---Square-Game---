@@ -1,5 +1,5 @@
 export const resize = function (arr, n) {
-  n *= 2;
+  /* n *= 2;
   const length = arr[0].length;
   const newRow = Array(length + n).fill(0);
 
@@ -14,8 +14,9 @@ export const resize = function (arr, n) {
     newArr.unshift([...newRow]);
     newArr.push([...newRow]);
   }
-
-  return newArr;
+ */
+  /* return newArr; */
+  return arr;
 };
 
 export const decrease = function (arr, n) {
