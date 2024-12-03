@@ -1,25 +1,18 @@
 import { removeFromObject } from "../model/removeFromObj.js";
 import { players, startGame } from "../script.js";
-
 const gameBoard = document.querySelector(".game-board");
-
 export function dropPieces(id, num, id2, target, currentPlayer) {
   let x,
     y,
-    test = true;
-
+    test = true,
+    test2 = false;
   let pieces = players[currentPlayer];
-  console.log(players);
   x = id2[0];
   y = id2[1];
   id[0] = parseInt(id[0]);
   id[1] = parseInt(id[1]);
-  for (let i = id[0]; i < 5 + id[0]; i++) {
-    for (let j = id[1]; j < 5 + id[1]; j++) {
-      if (pieces[`piece${num}`] === undefined) {
-        test = false;
-        continue;
-      }
+  for (let i = id[0]; i < 7 + id[0]; i++) {
+    for (let j = id[1]; j < 7 + id[1]; j++) {
       if (pieces[`piece${num}`][i - id[0]][j - id[1]] == 1) {
         if (
           document.getElementById(`${i - x}-${j - y}`) == null ||
@@ -35,9 +28,6 @@ export function dropPieces(id, num, id2, target, currentPlayer) {
           document
             .getElementById(`${i - x}-${j - y - 1}`)
             ?.classList.contains(pieces.color) ||
-          document.getElementById(`${i - x}-${j - y}`)?.classList.length != 1 ||
-          document.getElementById(`${i - x}-${j - y}`)?.classList.length != 1 ||
-          document.getElementById(`${i - x}-${j - y}`)?.classList.length != 1 ||
           document.getElementById(`${i - x}-${j - y}`)?.classList.length != 1
         ) {
           test = false;
@@ -45,24 +35,31 @@ export function dropPieces(id, num, id2, target, currentPlayer) {
       }
     }
   }
-  if (test) {
+  for (let i = id[0]; i < 7 + id[0]; i++) {
+    for (let j = id[1]; j < 7 + id[1]; j++) {
+      if (pieces[`piece${num}`][i - id[0]][j - id[1]] == 1) {
+        pieces.possibleMoves.forEach((mov) => {
+          if (mov[0] === i - x && mov[1] === j - y) {
+            test2 = true;
+          }
+        });
+      }
+    }
+  }
+  if (test && test2) {
     let arrCell = [];
-    for (let i = id[0]; i < 5 + id[0]; i++) {
-      for (let j = id[1]; j < 5 + id[1]; j++) {
-        if (pieces[`piece${num}`] === undefined) {
-          continue;
-        }
+    for (let i = id[0]; i < 7 + id[0]; i++) {
+      for (let j = id[1]; j < 7 + id[1]; j++) {
         if (pieces[`piece${num}`][i - id[0]][j - id[1]] == 1) {
           const cell = document.getElementById(`${i - x}-${j - y}`);
           arrCell.push(cell);
-          cell.style.backgroundColor = pieces.color;
           cell.style.boxShadow = "0 3px 10px 3px rgba(0, 0, 0, 0.582)";
           cell.classList.add(`${pieces.color}`);
           target.style.display = "none";
+          cell.style.backgroundColor = pieces.color;
         }
       }
     }
-
     const removePiece = function () {
       target.style.display = "flex";
 
@@ -128,6 +125,29 @@ export function dropPieces(id, num, id2, target, currentPlayer) {
     const btn = document.querySelector(".next-turn");
 
     const displayBtn = function () {
+      for (let i = id[0]; i < 7 + id[0]; i++) {
+        for (let j = id[1]; j < 7 + id[1]; j++) {
+          if (pieces[`piece${num}`][i - id[0]][j - id[1]] == 1) {
+            players.forEach((pieces) => {
+              pieces.possibleMoves = pieces.possibleMoves.filter(
+                (mov) => !(mov[0] === i - x && mov[1] === j - y)
+              );
+            });
+          }
+          if (
+            pieces[`piece${num}`][i - id[0]][j - id[1]] === 2 &&
+            document.getElementById(`${i - x}-${j - y}`)
+          ) {
+            console.log(document.getElementById(`${i - x}-${j - y}`));
+            const cell = document.getElementById(`${i - x}-${j - y}`);
+            const color = cell.style.backgroundColor;
+            if (!color) {
+              pieces.possibleMoves.push([i - x, j - y]);
+            }
+            console.log(pieces.possibleMoves);
+          }
+        }
+      }
       removeFromObject(
         players[currentPlayer],
         Number(target.getAttribute("piece"))

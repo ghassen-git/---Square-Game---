@@ -61,8 +61,8 @@ body .side-bar-container .pieces-container .piece-box {
   transform: translate(0, 0);
   display: flex;
   flex-wrap: wrap;
-  width: 15rem;
-  height: 15rem;
+  width: 21rem;
+  height: 21rem;
 }
 body .side-bar-container .pieces-container .piece-box .cell-1 {
   border: 2px solid transparent;

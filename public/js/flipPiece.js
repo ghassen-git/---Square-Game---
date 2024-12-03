@@ -20,10 +20,14 @@ export const flipPiece = function (id, pieces) {
       if (pieces[`piece${id}`][i][j] === 1) {
         rotatedPiece[j][i] = 1;
       }
+      if (pieces[`piece${id}`][i][j] === 2) {
+        rotatedPiece[j][i] = 2;
+      }
     }
   }
   rotatedPiece = reverseRows(rotatedPiece);
   pieces[`piece${id}`] = rotatedPiece;
+  console.log(pieces[`piece${id}`]);
   displayPieces(pieces);
 };
 export const flipPieceY = function (id, pieces) {
@@ -36,5 +40,6 @@ export const flipPieceY = function (id, pieces) {
   }
 
   pieces[`piece${id}`] = rotatedPiece;
+  console.log(pieces[`piece${id}`]);
   displayPieces(pieces);
 };

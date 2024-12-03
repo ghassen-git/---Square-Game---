@@ -26,6 +26,7 @@ export let players = [
 export let currentPlayer = 0;
 export let pieces;
 export let droppable = true;
+
 displayCells();
 export const startGame = function (currentPlayer) {
   displaySideBar(players[currentPlayer]);
