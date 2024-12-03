@@ -47,7 +47,6 @@ export function dropPieces(id, num, id2, target, currentPlayer) {
     }
   }
   if (test && test2) {
-    // Update the game board and possible moves
     for (let i = id[0]; i < 7 + id[0]; i++) {
       for (let j = id[1]; j < 7 + id[1]; j++) {
         if (pieces[`piece${num}`] === undefined) {
@@ -77,7 +76,6 @@ export function dropPieces(id, num, id2, target, currentPlayer) {
         }
       }
     }
-    // Update possible moves
 
     console.log(pieces.possibleMoves);
     removeFromObject(

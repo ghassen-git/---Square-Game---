@@ -7,11 +7,17 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body class="game">
+    <div class="btns-container">
+      <button class="btn btn-pass"><p>RESTART</p></button>
+      <button class="btn btn-pass"><p>PASS</p></button>
+      <button class="btn btn-quit"><p>QUIT</p></button>
+    </div>
     <div class="game-container">
-      <button class="btn-quit">QUIT</button>
       <div class="game-board"></div>
-      <div class="side-bar-container">
-        <div class="pieces-container"></div>
+      <div class="hide-scroll">
+        <div class="side-bar-container">
+          <div class="pieces-container"></div>
+        </div>
       </div>
     </div>
     <script type="module" src="js/script.js"></script>
