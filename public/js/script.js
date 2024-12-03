@@ -46,36 +46,35 @@ export const startGame = function (currentPlayer) {
     });
   });
   let target, piece, x, y;
-  if (droppable) {
-    document.querySelectorAll(".piece-box").forEach((pieceb) => {
-      pieceb.addEventListener("dragstart", (event) => {
-        target = event.target;
-        piece = target.getAttribute("piece");
 
-        target.style.background = "none";
-      });
-      pieceb.addEventListener("mousedown", function (e) {
-        x = parseInt(e.target.getAttribute("x"));
-        y = parseInt(e.target.getAttribute("y"));
-      });
-    });
-    document.querySelectorAll(".cell").forEach(function (cell) {
-      cell.addEventListener("dragover", (event) => {
-        event.preventDefault();
-      });
-      cell.addEventListener("drop", (event) => {
-        event.preventDefault();
+  document.querySelectorAll(".piece-box").forEach((pieceb) => {
+    pieceb.addEventListener("dragstart", (event) => {
+      target = event.target;
+      piece = target.getAttribute("piece");
 
-        dropPieces(
-          [event.target.getAttribute("x"), event.target.getAttribute("y")],
-          piece,
-          [x, y],
-          target,
-          currentPlayer
-        );
-      });
+      target.style.background = "none";
     });
-  }
+    pieceb.addEventListener("mousedown", function (e) {
+      x = parseInt(e.target.getAttribute("x"));
+      y = parseInt(e.target.getAttribute("y"));
+    });
+  });
+  document.querySelectorAll(".cell").forEach(function (cell) {
+    cell.addEventListener("dragover", (event) => {
+      event.preventDefault();
+    });
+    cell.addEventListener("drop", (event) => {
+      event.preventDefault();
+
+      dropPieces(
+        [event.target.getAttribute("x"), event.target.getAttribute("y")],
+        piece,
+        [x, y],
+        target,
+        currentPlayer
+      );
+    });
+  });
 };
 
 startGame(currentPlayer);

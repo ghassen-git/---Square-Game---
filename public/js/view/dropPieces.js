@@ -16,6 +16,10 @@ export function dropPieces(id, num, id2, target, currentPlayer) {
   id[1] = parseInt(id[1]);
   for (let i = id[0]; i < 5 + id[0]; i++) {
     for (let j = id[1]; j < 5 + id[1]; j++) {
+      if (pieces[`piece${num}`] === undefined) {
+        test = false;
+        continue;
+      }
       if (pieces[`piece${num}`][i - id[0]][j - id[1]] == 1) {
         if (
           document.getElementById(`${i - x}-${j - y}`) == null ||
@@ -45,6 +49,9 @@ export function dropPieces(id, num, id2, target, currentPlayer) {
     let arrCell = [];
     for (let i = id[0]; i < 5 + id[0]; i++) {
       for (let j = id[1]; j < 5 + id[1]; j++) {
+        if (pieces[`piece${num}`] === undefined) {
+          continue;
+        }
         if (pieces[`piece${num}`][i - id[0]][j - id[1]] == 1) {
           const cell = document.getElementById(`${i - x}-${j - y}`);
           arrCell.push(cell);
