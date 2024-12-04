@@ -17,10 +17,13 @@ export let players = [
   piecesSetPlayer3,
   piecesSetPlayer4,
 ];
+
 export let currentPlayer;
 export let pieces;
+let quitCounter;
 const startGame = function () {
   displayCells();
+  quitCounter = 3;
   currentPlayer = 0;
   displaySideBar(players[currentPlayer]);
   displayPieces(players[currentPlayer]);
@@ -96,7 +99,10 @@ piecesEl.forEach((pieceEl) => {
 const btnQuit = document.querySelector(".btn-quit");
 
 btnQuit.addEventListener("click", function () {
-  let playerIdentifier = players[currentPlayer].color;
-  players = players.filter((player) => player.color != playerIdentifier);
-  displayPieces(players[currentPlayer]);
+  if (quitCounter > 0) {
+    let playerIdentifier = players[currentPlayer].color;
+    players = players.filter((player) => player.color != playerIdentifier);
+    displayPieces(players[currentPlayer]);
+  }
+  quitCounter--;
 });
