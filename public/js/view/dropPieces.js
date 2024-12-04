@@ -6,6 +6,7 @@ export function dropPieces(id, num, id2, target, currentPlayer) {
     y,
     test = true,
     test2 = false;
+
   let pieces = players[currentPlayer];
   x = id2[0];
   y = id2[1];
@@ -75,10 +76,15 @@ export function dropPieces(id, num, id2, target, currentPlayer) {
         btn.remove();
       });
     };
+    const quit = document.querySelector(".btn-quit");
+
     gameBoard.addEventListener("dblclick", removePiece);
     document
       .querySelectorAll(".piece-box")
       .forEach((piece) => piece.setAttribute("draggable", false));
+    if (quit) {
+      quit.remove();
+    }
 
     const html = ` <button class="next-turn">
         <svg
@@ -144,7 +150,6 @@ export function dropPieces(id, num, id2, target, currentPlayer) {
             if (!color) {
               pieces.possibleMoves.push([i - x, j - y]);
             }
-            console.log(pieces.possibleMoves);
           }
         }
       }
@@ -153,11 +158,13 @@ export function dropPieces(id, num, id2, target, currentPlayer) {
         Number(target.getAttribute("piece"))
       );
       gameBoard.removeEventListener("dblclick", removePiece);
-      players[currentPlayer].score -= arrCell.length;
-      document
-        .querySelector(`.score-${currentPlayer + 1}`)
-        .querySelector("span").textContent = players[currentPlayer].score;
-      let player = document.querySelector(`.player-${currentPlayer + 1}`);
+      // players[currentPlayer].score -= arrCell.length;
+      // document
+      //   .querySelector(`.score-${currentPlayer + 1}`)
+      //   .querySelector("span").textContent = players[currentPlayer].score;
+      let player = document.querySelector(
+        `.player-${players[currentPlayer].index}`
+      );
       player.classList.remove("active");
       player.querySelector(".icon").innerHTML = `  <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -171,10 +178,19 @@ export function dropPieces(id, num, id2, target, currentPlayer) {
           </svg>`;
 
       currentPlayer++;
-      if (currentPlayer === 4) {
+      if (currentPlayer === players.length) {
         currentPlayer = 0;
       }
-      player = document.querySelector(`.player-${currentPlayer + 1}`);
+      while (players[currentPlayer].quited == true) {
+        currentPlayer++;
+        if (currentPlayer === players.length) {
+          currentPlayer = 0;
+        }
+      }
+
+      player = document.querySelector(
+        `.player-${players[currentPlayer].index}`
+      );
       player.classList.add("active");
       if (player.classList.contains("active")) {
         player.querySelector(".icon").innerHTML = `  <svg
@@ -193,7 +209,30 @@ export function dropPieces(id, num, id2, target, currentPlayer) {
             />
           </svg>`;
       }
+      const html2 = ` <div class="btns-container">
+          <button class="btn btn-quit">
+            <p>QUIT</p>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+            >
+              <rect width="24" height="24" fill="none" />
+              <g>
+                <path
+                  d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z"
+                />
+                <path
+                  d="M15.54 3a3 3 0 0 0-.528.998h-.632a3 3 0 0 0 0 6h.63c.14.456.39.886.75 1.246a3 3 0 0 0 2.24.875V19h2a1 1 0 1 1 0 2H4a1 1 0 1 1 0-2V5a2 2 0 0 1 2-2zM13.5 13a1.5 1.5 0 1 0 0 3a1.5 1.5 0 0 0 0-3m5.087-8.828l2.12 2.12a1 1 0 0 1 0 1.413l-2.12 2.123a1 1 0 1 1-1.415-1.413l.416-.417H14.38a1 1 0 1 1 0-2h3.205l-.412-.412a1 1 0 0 1 1.414-1.414"
+                />
+              </g>
+            </svg>
+          </button>
+        </div>`;
+      gameBoard.insertAdjacentHTML("afterbegin", html2);
       startGame(currentPlayer);
+
       btn.remove();
     };
 

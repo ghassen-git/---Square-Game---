@@ -1,8 +1,10 @@
 class PiecesCl {
-  constructor(color, arr, score) {
+  constructor(color, arr, score, quited, i) {
     this.color = color;
     this.possibleMoves = arr;
     this.score = score;
+    this.quited = quited;
+    this.index = i;
     this.piece1 = [
       [0, 0, 0, 0, 0, 0, 0],
       [0, 0, 0, 0, 0, 0, 0],
@@ -122,12 +124,12 @@ class PiecesCl {
     ];
     this.piece14 = [
       [0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 2, 0, 0, 2, 0],
-      [0, 0, 0, 1, 1, 0, 0],
-      [0, 2, 0, 1, 0, 2, 0],
-      [0, 0, 1, 1, 0, 0, 0],
-      [0, 2, 0, 0, 2, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 2, 0, 2, 0, 0],
+      [0, 0, 0, 1, 0, 0, 0],
+      [0, 0, 0, 1, 0, 0, 0],
+      [0, 0, 0, 1, 0, 0, 0],
+      [0, 0, 0, 1, 0, 0, 0],
+      [0, 0, 2, 0, 2, 0, 0],
     ];
     this.piece15 = [
       [0, 0, 0, 0, 0, 0, 0],
@@ -180,13 +182,13 @@ class PiecesCl {
       [0, 0, 0, 1, 1, 0, 0],
       [0, 0, 0, 1, 0, 2, 0],
       [0, 0, 0, 1, 0, 0, 0],
+      [0, 0, 0, 1, 0, 0, 0],
       [0, 0, 2, 0, 2, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0],
     ];
   }
 }
 
-export const piecesSetPlayer1 = new PiecesCl(
+export let piecesSetPlayer1 = new PiecesCl(
   "#ef476f",
   [
     [0, 0],
@@ -194,9 +196,11 @@ export const piecesSetPlayer1 = new PiecesCl(
     [0, 19],
     [19, 19],
   ],
-  89
+  89,
+  false,
+  1
 );
-export const piecesSetPlayer2 = new PiecesCl(
+export let piecesSetPlayer2 = new PiecesCl(
   "#ffd166",
   [
     [0, 0],
@@ -204,9 +208,11 @@ export const piecesSetPlayer2 = new PiecesCl(
     [0, 19],
     [19, 19],
   ],
-  89
+  89,
+  false,
+  2
 );
-export const piecesSetPlayer3 = new PiecesCl(
+export let piecesSetPlayer3 = new PiecesCl(
   "#06d6a0",
   [
     [0, 0],
@@ -214,9 +220,11 @@ export const piecesSetPlayer3 = new PiecesCl(
     [0, 19],
     [19, 19],
   ],
-  89
+  89,
+  false,
+  3
 );
-export const piecesSetPlayer4 = new PiecesCl(
+export let piecesSetPlayer4 = new PiecesCl(
   "#118ab2",
   [
     [0, 0],
@@ -224,7 +232,9 @@ export const piecesSetPlayer4 = new PiecesCl(
     [0, 19],
     [19, 19],
   ],
-  89
+  89,
+  false,
+  4
 );
 
 /* 

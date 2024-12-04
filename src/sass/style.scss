@@ -96,7 +96,7 @@ body {
   border: none;
   width: 6rem;
   height: 6rem;
-  bottom: 3%;
+  top: 3%;
   right: -30%;
   cursor: pointer;
   svg {
@@ -160,4 +160,33 @@ body {
     text-align: left;
     font-family: sans-serif;
   }
+}
+.btn-quit {
+  opacity: 1;
+  transition: all 0.7s;
+  scale: 1;
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  background-color: #073b4c;
+  box-shadow: 0 0 10px 5px #f78c6b84;
+  border: none;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  position: absolute;
+  top: 3%;
+  left: -30%;
+  p {
+    font-size: 1.4rem;
+    color: #f78c6b;
+  }
+  g {
+    fill: #f78c6b;
+  }
+}
+.loser {
+  display: none;
 }
