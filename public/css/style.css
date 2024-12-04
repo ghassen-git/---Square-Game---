@@ -52,9 +52,6 @@ body .side-bar-container .pieces-container {
   display: grid;
   height: 100%;
   grid-template-columns: 1fr 1fr;
-  column-gap: 1rem;
-  row-gap: 2rem;
-  padding: 0.5rem;
 }
 body .side-bar-container .pieces-container .piece-box {
   background-position: 0;
@@ -63,6 +60,7 @@ body .side-bar-container .pieces-container .piece-box {
   flex-wrap: wrap;
   width: 21rem;
   height: 21rem;
+  margin: -1rem;
 }
 body .side-bar-container .pieces-container .piece-box .cell-1 {
   border: 2px solid transparent;
