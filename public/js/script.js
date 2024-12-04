@@ -2,8 +2,6 @@ import { displayCells } from "./view/displayCells.js";
 
 import { displaySideBar } from "./view/displaySideBarCells.js";
 
-import { removeFromObject } from "./model/removeFromObj.js";
-
 import { displayPieces } from "./view/displayPieces.js";
 
 import { dropPieces } from "./view/dropPieces.js";
