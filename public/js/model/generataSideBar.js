@@ -1,5 +1,5 @@
 const buildCellHTML = function (y, x) {
-  return `<div draggable='true' class="cell" pos="[${x},${y}]"></div>`;
+  return `<div class="cell-1" pos="[${x},${y}]" x=${y} y=${x}></div>`;
 };
 
 const generateSideBarCells = function (length, height) {
@@ -13,10 +13,10 @@ const generateSideBarCells = function (length, height) {
   return html;
 };
 
-const buildCellsBoxHTML = function () {
-  const html = generateSideBarCells(5, 5);
+const buildCellsBoxHTML = function (i) {
+  const html = generateSideBarCells(7, 7);
 
-  return `<div class=piece-box>
+  return `<div draggable='true' piece='${i}' class=piece-box>
   ${html}
   </div>`;
 };
@@ -24,7 +24,7 @@ const buildCellsBoxHTML = function () {
 export const generateSideBarCellsBox = function (n) {
   let html = ``;
   for (let i = 0; i < n; i++) {
-    html += buildCellsBoxHTML();
+    html += buildCellsBoxHTML(i + 1);
   }
 
   return html;
