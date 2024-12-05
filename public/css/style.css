@@ -121,19 +121,31 @@ body .side-bar-container .pieces-container .piece-box .cell-1 {
   flex-direction: column;
   gap: 1rem;
   padding: 1rem 2rem;
-  transition: all 0.2s;
+  transition: all 0.3s;
 }
 .players .player-1 {
   background-color: #ef476f;
 }
+.players .player-1 .crown {
+  display: none;
+}
 .players .player-2 {
   background-color: #ffd166;
+}
+.players .player-2 .crown {
+  display: none;
 }
 .players .player-3 {
   background-color: #06d6a0;
 }
+.players .player-3 .crown {
+  display: none;
+}
 .players .player-4 {
   background-color: #118ab2;
+}
+.players .player-4 .crown {
+  display: none;
 }
 .players svg {
   height: 4rem;
@@ -154,7 +166,6 @@ body .side-bar-container .pieces-container .piece-box .cell-1 {
 
 .quitted {
   position: relative;
-  overflow: hidden;
   background-color: #073b4c !important;
 }
 
@@ -162,7 +173,7 @@ body .side-bar-container .pieces-container .piece-box .cell-1 {
   position: relative;
   overflow: hidden;
   background-color: #073b4c !important;
-  scale: none !important;
+  scale: none;
   box-shadow: 0 0 3px 2px #f78c6b;
   width: 12rem;
 }
@@ -218,4 +229,32 @@ body .side-bar-container .pieces-container .piece-box .cell-1 {
 }
 .btn-quit g {
   fill: #f78c6b;
+}
+
+.winner {
+  position: relative;
+  scale: 1.1;
+  background-color: #073b4c !important;
+  box-shadow: 0 0 10px 5px gold;
+}
+.winner svg {
+  scale: 1.2;
+}
+.winner .crown {
+  display: block !important;
+  position: absolute;
+  top: -3.5rem;
+  left: -2.2rem;
+  rotate: -22deg;
+  width: 6rem;
+  height: 6rem;
+  fill: #fda014;
+}
+.winner p {
+  font-weight: 500;
+  font-family: sans-serif;
+  font-size: 2rem;
+  color: #fab754 !important;
+  text-shadow: 0 1px 0 #fda014, 0 2px 0 #fda014, 0 3px 0 #fda014;
+  letter-spacing: 0.2rem;
 }
