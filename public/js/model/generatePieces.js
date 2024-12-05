@@ -196,7 +196,7 @@ export let piecesSetPlayer1 = new PiecesCl(
     [0, 19],
     [19, 19],
   ],
-  89,
+  86,
   false,
   1
 );
@@ -208,7 +208,7 @@ export let piecesSetPlayer2 = new PiecesCl(
     [0, 19],
     [19, 19],
   ],
-  89,
+  86,
   false,
   2
 );
@@ -220,7 +220,7 @@ export let piecesSetPlayer3 = new PiecesCl(
     [0, 19],
     [19, 19],
   ],
-  89,
+  86,
   false,
   3
 );
@@ -232,7 +232,7 @@ export let piecesSetPlayer4 = new PiecesCl(
     [0, 19],
     [19, 19],
   ],
-  89,
+  86,
   false,
   4
 );

@@ -95,7 +95,7 @@ export const startGame = function (currentPlayer) {
     player.querySelector("svg").style.fill = `${players[currentPlayer].color}`;
     players[currentPlayer].quited = true;
 
-    player.classList.add("loser");
+    player.classList.add("quited");
     currentPlayer++;
     if (currentPlayer === players.length) {
       currentPlayer = 0;
