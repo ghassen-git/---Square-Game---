@@ -21,11 +21,10 @@ const buildCellsBoxHTML = function (i) {
   </div>`;
 };
 
-export const generateSideBarCellsBox = function (n) {
+export const generateSideBarCellsBox = function () {
   let html = ``;
-  for (let i = 0; i < n; i++) {
+  for (let i = 0; i < 20; i++) {
     html += buildCellsBoxHTML(i + 1);
   }
-
   return html;
 };

@@ -231,6 +231,9 @@ export function dropPieces(id, num, id2, target, currentPlayer) {
             </svg>
           </button>
         </div>`;
+      /* players.forEach((player) =>
+        console.log(player, Object.keys(player).length - 5)
+      ); */
       gameBoard.insertAdjacentHTML("afterbegin", html2);
       startGame(currentPlayer);
 

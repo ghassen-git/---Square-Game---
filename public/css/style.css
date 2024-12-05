@@ -13,6 +13,7 @@ html {
 }
 
 body {
+  font-family: sans-serif;
   height: 100svh;
   background: radial-gradient(circle at top left, #073b4c 50%, #f78c6b 50%);
   display: flex;
@@ -21,9 +22,40 @@ body {
   position: relative;
   overflow: hidden;
   flex-direction: column;
-}
-body .game-container {
-  position: relative;
+  /* .dashboard-container {
+    width: 36rem;
+    background: #6e3838e6;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    border-radius: 10px; */
+  /* .rule {
+      padding: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1.6rem;
+      font-size: 1.8rem;
+      color: #fff;
+
+      svg {
+        height: 2.4rem;
+        width: 2.4rem;
+        fill: #ffffff;
+      }
+      span {
+        position: relative;
+        top: -1.8rem;
+        svg {
+          position: relative;
+          height: 5rem;
+          width: 5rem;
+          top: 2rem;
+          left: -2rem;
+        }
+      }
+    }
+  } */
 }
 body .game-board {
   transition: all 1s;
@@ -35,16 +67,16 @@ body .game-board {
   overflow: hidden;
 }
 body .side-bar-container {
-  background: rgba(31, 32, 65, 0.5529411765);
+  background: rgba(136, 18, 18, 0.2980392157);
   border-radius: 5px;
   position: absolute;
-  top: -10%;
-  right: -67.5rem;
+  top: 0;
+  right: -1.5rem;
   width: 36rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 70rem;
+  height: 100%;
   overflow-y: scroll;
   overflow-x: hidden;
 }
