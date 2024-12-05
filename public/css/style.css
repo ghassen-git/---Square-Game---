@@ -152,15 +152,21 @@ body .side-bar-container .pieces-container .piece-box .cell-1 {
   font-family: sans-serif;
 }
 
+.quitted {
+  position: relative;
+  overflow: hidden;
+  background-color: #073b4c !important;
+}
+
 .loser {
   position: relative;
   overflow: hidden;
   background-color: #073b4c !important;
+  scale: none !important;
   box-shadow: 0 0 3px 2px #f78c6b;
   width: 12rem;
 }
 .loser svg {
-  fill: #06d6a0;
   width: 6rem;
   height: 6rem;
 }
