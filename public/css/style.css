@@ -1,3 +1,81 @@
+@media (max-width: 98em) {
+  .btn-quit,
+  .next-turn {
+    top: 11% !important;
+    left: 17% !important;
+  }
+  .next-turn {
+    box-shadow: 0 0 10px 5px rgba(68, 76, 112, 0.599) !important;
+    background: none !important;
+  }
+  .next-turn g {
+    stroke: #f78c6b !important;
+  }
+  .next-turn:hover {
+    box-shadow: 0 0 10px 5px rgba(118, 158, 205, 0.83) !important;
+    background: #f78c6b !important;
+  }
+  .next-turn:hover g {
+    stroke: #073b4c !important;
+  }
+  html {
+    font-size: 60% !important;
+  }
+  body .side-bar-container {
+    top: -3% !important;
+    width: 25rem !important;
+    height: 65rem !important;
+  }
+  body .side-bar-container .pieces-container {
+    grid-template-columns: 1fr !important;
+  }
+}
+@media (max-width: 80em) {
+  .btn-quit,
+  .next-turn {
+    left: 8% !important;
+  }
+  html {
+    font-size: 58% !important;
+  }
+  body .side-bar-container {
+    top: 0% !important;
+    width: 20rem !important;
+    height: 60rem !important;
+  }
+}
+@media (max-width: 65em) {
+  .btn-quit,
+  .next-turn {
+    left: 4% !important;
+  }
+  html {
+    font-size: 55% !important;
+  }
+  body .side-bar-container {
+    top: 0% !important;
+    width: 18rem !important;
+    height: 60rem !important;
+  }
+  body {
+    height: 100%;
+    background: radial-gradient(circle at top left, #073b4c 60%, #f78c6b 40%) !important;
+  }
+}
+@media (max-width: 65em) {
+  html {
+    font-size: 53% !important;
+  }
+}
+@media (max-width: 50em) {
+  .btn-quit,
+  .next-turn {
+    left: -5% !important;
+  }
+  html {
+    font-size: 52% !important;
+  }
+}
 * {
   padding: 0;
   margin: 0;
@@ -13,17 +91,23 @@ html {
 }
 
 body {
-  height: 100svh;
+  width: 100%;
+  padding: 9rem;
   background: radial-gradient(circle at top left, #073b4c 50%, #f78c6b 50%);
+  background-repeat: no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
   flex-direction: column;
 }
 body .game-container {
   position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 body .game-board {
   transition: all 1s;
@@ -35,11 +119,12 @@ body .game-board {
   overflow: hidden;
 }
 body .side-bar-container {
+  border: 7px solid;
   background: rgba(31, 32, 65, 0.5529411765);
   border-radius: 5px;
   position: absolute;
-  top: -10%;
-  right: -67.5rem;
+  top: -12%;
+  right: -12rem;
   width: 36rem;
   display: flex;
   justify-content: center;
@@ -86,8 +171,8 @@ body .side-bar-container .pieces-container .piece-box .cell-1 {
   border: none;
   width: 6rem;
   height: 6rem;
-  top: 3%;
-  right: -30%;
+  top: 13%;
+  right: 25%;
   cursor: pointer;
 }
 .next-turn svg {
@@ -221,8 +306,8 @@ body .side-bar-container .pieces-container .piece-box .cell-1 {
   justify-content: center;
   gap: 0.5rem;
   position: absolute;
-  top: 3%;
-  left: -30%;
+  top: 13%;
+  left: 25%;
 }
 .btn-quit p {
   font-size: 1.4rem;
