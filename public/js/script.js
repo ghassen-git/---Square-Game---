@@ -14,6 +14,7 @@ import { piecesSetPlayer4 } from "./model/generatePieces.js";
 //Flip A Peace
 import { flipPiece } from "./flipPiece.js";
 import { flipPieceY } from "./flipPiece.js";
+import { winner } from "./view/displayWinner.js";
 export let players = [
   piecesSetPlayer1,
   piecesSetPlayer2,
@@ -75,14 +76,14 @@ export const startGame = function (currentPlayer) {
     });
   });
   const quit = document.querySelector(".btn-quit");
+
   const playerQuit = function (e) {
     let player = document.querySelector(
       `.player-${players[currentPlayer].index}`
     );
-
-    player.classList.remove("active");
-    player.classList.remove(`player-${players[currentPlayer].index}`);
-    player.querySelector(".icon").innerHTML = `  <svg
+    if (player) {
+      player.classList.remove("active");
+      player.querySelector(".icon").innerHTML = `  <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
           height="24"
@@ -92,25 +93,32 @@ export const startGame = function (currentPlayer) {
             d="M9.875 21.125L8.3 9.275q-.125-.9.475-1.588t1.5-.687h3.45q.9 0 1.5.687t.475 1.588l-1.575 11.85q-.05.375-.337.625t-.663.25h-2.25q-.375 0-.663-.25t-.337-.625M12 6q-.825 0-1.412-.587T10 4t.588-1.412T12 2t1.413.588T14 4t-.587 1.413T12 6"
           />
         </svg>`;
-    player.querySelector("svg").style.fill = `${players[currentPlayer].color}`;
-    players[currentPlayer].quited = true;
+      player
+        .querySelector(".icon")
+        .querySelector("svg").style.fill = `${players[currentPlayer].color}`;
+      player.querySelector("p").style.color = `${players[currentPlayer].color}`;
+      players[currentPlayer].quited = true;
 
-    player.classList.add("quited");
-    currentPlayer++;
-    if (currentPlayer === players.length) {
-      currentPlayer = 0;
-    }
-    while (players[currentPlayer].quited == true) {
+      player.classList.add("quitted");
       currentPlayer++;
       if (currentPlayer === players.length) {
         currentPlayer = 0;
       }
-    }
+      let i = 0;
+      while (players[currentPlayer].quited == true && i < 4) {
+        i++;
+        currentPlayer++;
+        if (currentPlayer === players.length) {
+          currentPlayer = 0;
+        }
+      }
 
-    player = document.querySelector(`.player-${players[currentPlayer].index}`);
-    player.classList.add("active");
-    if (player.classList.contains("active")) {
-      player.querySelector(".icon").innerHTML = `  <svg
+      player = document.querySelector(
+        `.player-${players[currentPlayer].index}`
+      );
+      player?.classList.add("active");
+      if (player?.classList.contains("active")) {
+        player.querySelector(".icon").innerHTML = `  <svg
           xmlns="http://www.w3.org/2000/svg"
           width="100"
           height="100"
@@ -125,11 +133,20 @@ export const startGame = function (currentPlayer) {
             color="currentColor"
           />
         </svg>`;
-    }
+      }
 
-    startGame(currentPlayer);
+      startGame(currentPlayer);
+    }
   };
-  quit.addEventListener("click", playerQuit);
+  quit?.addEventListener("click", playerQuit);
+  let quitted = players.filter((player) => player.quited == true);
+  const firstWinner = players.filter((player) => player.score == 0);
+  if (quitted.length > 3 || firstWinner.length) {
+    winner();
+    document.querySelector(".side-bar-container")?.remove();
+
+    quit?.remove();
+  }
 };
 
 startGame(currentPlayer);
