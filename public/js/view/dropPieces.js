@@ -71,10 +71,12 @@ export function dropPieces(id, num, id2, target, currentPlayer) {
         cell.style.backgroundColor = "white";
         cell.style.boxShadow = "none";
         cell.classList.remove(`${pieces.color}`);
-        gameBoard.removeEventListener("dblclick", removePiece);
+
         btn.removeEventListener("click", displayBtn);
         btn.remove();
+        gameBoard.removeEventListener("dblclick", removePiece);
       });
+      arrCell = [];
     };
     const quit = document.querySelector(".btn-quit");
 
@@ -158,10 +160,10 @@ export function dropPieces(id, num, id2, target, currentPlayer) {
         Number(target.getAttribute("piece"))
       );
       gameBoard.removeEventListener("dblclick", removePiece);
-      // players[currentPlayer].score -= arrCell.length;
-      // document
-      //   .querySelector(`.score-${currentPlayer + 1}`)
-      //   .querySelector("span").textContent = players[currentPlayer].score;
+      players[currentPlayer].score -= arrCell.length;
+      document
+        .querySelector(`.score-${currentPlayer + 1}`)
+        .querySelector("span").textContent = players[currentPlayer].score;
       let player = document.querySelector(
         `.player-${players[currentPlayer].index}`
       );
