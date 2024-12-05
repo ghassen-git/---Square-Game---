@@ -26,6 +26,5 @@ export const generateSideBarCellsBox = function () {
   for (let i = 0; i < 20; i++) {
     html += buildCellsBoxHTML(i + 1);
   }
-
   return html;
 };

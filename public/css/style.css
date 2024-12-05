@@ -166,6 +166,7 @@ body .side-bar-container .pieces-container .piece-box .cell-1 {
 
 .quitted {
   position: relative;
+
   background-color: #073b4c !important;
 }
 
@@ -251,10 +252,14 @@ body .side-bar-container .pieces-container .piece-box .cell-1 {
   fill: #fda014;
 }
 .winner p {
+
   font-weight: 500;
   font-family: sans-serif;
   font-size: 2rem;
   color: #fab754 !important;
+
+ 
+
   text-shadow: 0 1px 0 #fda014, 0 2px 0 #fda014, 0 3px 0 #fda014;
   letter-spacing: 0.2rem;
 }
