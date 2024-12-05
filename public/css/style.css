@@ -144,7 +144,7 @@ body .side-bar-container .pieces-container .piece-box .cell-1 {
   scale: 1.2;
 }
 .players .score {
-  color: #073b4c;
+  color: transparent;
   font-size: 1.2rem;
   letter-spacing: 0.2rem;
   text-transform: uppercase;
