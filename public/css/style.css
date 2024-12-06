@@ -73,7 +73,7 @@
     left: -5% !important;
   }
   html {
-    font-size: 52% !important;
+    font-size: 48% !important;
   }
 }
 * {
@@ -92,6 +92,7 @@ html {
 
 body {
   width: 100%;
+  height: 100vh;
   padding: 9rem;
   background: radial-gradient(circle at top left, #073b4c 50%, #f78c6b 50%);
   background-repeat: no-repeat;
