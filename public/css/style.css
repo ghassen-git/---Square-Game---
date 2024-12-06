@@ -91,6 +91,7 @@ html {
 }
 
 body {
+   height:100vh;
   width: 100%;
   padding: 9rem;
   background: radial-gradient(circle at top left, #073b4c 50%, #f78c6b 50%);
