@@ -63,7 +63,7 @@ export function dropPieces(id, num, id2, target, currentPlayer) {
         if (pieces[`piece${num}`][i - id[0]][j - id[1]] == 1) {
           const cell = document.getElementById(`${i - x}-${j - y}`);
           arrCell.push(cell);
-          cell.style.boxShadow = "0 3px 10px 3px rgba(0, 0, 0, 0.582)";
+          cell.style.boxShadow = "0 3px 10px 3px rgba(0, 0, 0, 0.3)";
           cell.classList.add(`${pieces.color}`);
           target.style.display = "none";
           cell.style.backgroundColor = pieces.color;
